@@ -1,0 +1,1101 @@
+<html>
+    <head>
+        <!--文字エンコード指定-->
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        
+        <meta name="viewport" content="width=device-width, maximum-scale=1.0, user-scalable=yes">
+
+        {block:IndexPage}
+            <meta name='description' content='{MetaDescription}'>
+            <meta name='keywords' content='pieces of daily life, shunya_wisteria'>
+        {/block:IndexPage}
+        {block:Permalink}
+            <meta name="keywords" content="{block:Posts}{block:Tags}{Tag}, {/block:Tags}{/block:Posts}" />
+            <meta name="description" content="{MetaDescription} | {Title}" />
+        {/block:Permalink}
+
+        <link rel="shortcut icon" href="{Favicon}">
+        <link rel="apple-touch-icon" href="{PortraitURL-128}">
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+        
+        <meta name="theme-color" content="#c3c8cd">
+        
+        <!--jQuery読み込み-->
+        {block:Hidden}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>
+        {/block:Hidden}
+        
+        <title>{block:SearchPage}「{SearchQuery}」の検索結果 - {/block:SearchPage}{block:PermalinkPage}{block:PostSummary}{PostSummary} - {/block:PostSummary}{/block:PermalinkPage}{block:TagPage}「{Tag}」の投稿一覧 - {/block:TagPage}{Title}</title>
+
+        <!--テーマオプション-->
+        {block:Hidden}
+        <meta name="color:ThemeColor" content="">
+        
+        <meta name="text:analytics" content="">
+        
+        <meta name="text:Writer" content="">
+        <meta name="text:Ctg1" content="">
+        <meta name="text:Ctg1Url" content="">
+        <meta name="text:Ctg2" content="">
+        <meta name="text:Ctg2Url" content="">
+        <meta name="text:Ctg3" content="">
+        <meta name="text:Ctg3Url" content="">
+        <meta name="text:Ctg4" content="">
+        <meta name="text:Ctg4Url" content="">
+        <meta name="text:Ctg5" content="">
+        <meta name="text:Ctg5Url" content="">
+        <meta name="text:Ctg6" content="">
+        <meta name="text:Ctg6Url" content="">
+        <meta name="text:analytics" content="">
+        {/block:Hidden}
+        
+        <!--google analytics-->
+        {text:analytics}
+        
+        <!--CSSファイル読み込み-->
+        <style type="text/css">
+            @import url(https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css);
+
+/*  --  Start of Global setting --  */
+            body{
+                font-family: 'Open Sans','Rounded Mplus 1c', Segoe UI, "メイリオ", Meiryo, sans-serif;
+                font-weight: 300;
+                color:#737373;
+                background-color:#ffffff;
+                margin: 0 auto;
+                
+                max-height: 100%;
+                -webkit-text-size-adjust: 100%;
+            }
+            p {
+                max-height: 100%;
+            }
+/*  --  End of Global setting --  */
+
+/*  --  Start of Header tag --  */
+            header{
+                background-color:#f1f1f1;
+                margin:0px;
+                padding:20px 0px 20px 0px;
+            }
+            
+            header .header{
+                width:95%;
+                max-width:950px;
+                margin:0 auto;
+            }
+            header .header h1{
+                color: #333333;
+                font-weight:400;
+                font-size: 150%;
+                margin:0px;
+            }
+            header .header h1 a{
+                color: #333333;
+                transition-property: all;
+                transition: 0.2s linear;
+                text-decoration: none;
+            }
+            header .header h1 a:hover{
+                color: #dcdcdc;
+            }
+/*  --  End of Header tag --  */
+
+/*  --  Start of Nav tag --  */
+            nav{
+                background-color:#f1f1f1;
+                margin-top:-1px;
+                margin-bottom: 30px;
+                border:none;
+            }
+            nav ul{
+                display: flex;
+                
+                width:95%;
+                max-width: 950px;
+                height: 35px;
+                margin: 0 auto;
+                padding:0px;
+
+                list-style-type: none;
+            }
+            nav li{
+                font-size:100%;
+                color: #333333;
+
+                line-height: 30px;
+                margin: 0px 5px;
+            }
+            nav a {
+                text-decoration: none;
+                color:#333333;
+                transition-property: all;
+                transition: 0.3s ease-out;
+            }
+            nav a:hover{
+                text-decoration: none;
+                color: #dcdcdc;
+            }
+/*  --  End of Nav tag --  */
+
+/*  --  Start of Index page setting --  */
+            .flexbox
+            {
+                width: 95%;
+                max-width:1000px; 
+                margin: 0 auto;
+                margin-top:20px;
+            }
+            .item {
+                border-radius: 3px;
+                background-color: #fafafa;
+                border: solid 1px #f1f1f1;
+                box-shadow: 0 0 8px gray;
+
+                padding: 15px;
+                margin: 10px;
+                margin-bottom:20px;
+
+                position:relative;
+
+                text-align: center;
+
+                transition-property: all;
+                transition: 0.3s ease-out;
+            }
+            .item:hover{
+                border: solid 1px #AAAAAA;
+                box-shadow: 0 0 8px {color:ThemeColor};
+            }
+
+            .item a{
+                color:#737373;
+                text-decoration: none;
+            }
+
+            .item h1{
+                color:#333333;
+                font-size:130%;
+                font-weight: 400;
+                margin: 8px 0px;
+            }
+            .item .info{
+                font-size:70%;
+
+                margin-top:30px;
+                margin-bottom:15px;
+            }
+            
+            .item .linkQuote{
+                border-bottom: 1px solid #dcdcdc;
+                margin-bottom: 15px;
+                padding-bottom: 5px;
+            }
+
+            .item_cnt1{
+                text-align: left;
+                padding:10px;
+            }
+            .item_cnt1 img{
+                width: 250px;
+            }
+
+            .item_cnt2{
+                text-align: left;
+            }
+            
+            .boxlink{
+                position:absolute;
+                top:0;
+                left:0;
+                width:100%;
+                height:100%;
+                color:transparent;
+            }
+            
+            .read_more_container{
+                display: none;
+                font-size: 80%;
+            }
+/*  --  End of Index page setting --  */
+
+/*  --  Start of Page Navigation    --  */
+            .naviback{
+                margin-top:30px;
+                
+                font-size: 100%;
+                
+                text-align: center;
+            }
+            .naviback a{
+                margin:0px 10px;
+                padding: 3px 15px;
+                
+                background-color: #a5a5a5;
+                color: #ffffff;
+                border-radius: 3px;
+                border: solid 1px #AAAAAA;
+
+                transition-property: all;
+                transition: 0.3s linear;
+                
+                text-decoration: none;
+            }
+            .naviback a:hover{
+                color: #333333;
+                background-color: #f1f1f1;
+                text-decoration: none;
+                box-shadow: 0 0 8px {color:ThemeColor};
+            }
+/*  --  End of Page Navigation    --  */
+
+/*  --  Start of footer tag --  */
+            footer{
+                background-color:#f1f1f1;
+                margin-top:30px;
+                /* margin: -2px 0px 0px 0px; */
+                padding-top:5px;
+            }
+
+            footer .FooterContents2Col{
+                width:50%;
+                max-width:400px;
+                margin:0 auto;
+                
+                float:left;
+            }
+            footer .FooterContents{
+                height: auto;
+                overflow: hidden;
+                line-height:180%;
+                padding-top:5px;
+            }
+            footer .Footer{
+                width:95%;
+                max-width:800px;
+                margin:0 auto;
+                padding:0px 0px 20px 0px;
+            }
+            footer .Footer h1{
+                text-shadow:none;
+                text-align:left;
+                border:none;
+                
+                text-decoration:none;
+                font-weight:400;
+                font-size:130%;
+                
+                max-height: 100%;
+            }
+            footer .Footer h1 a{
+                color: #333333;
+                text-decoration:none;
+                transition-property: all;
+                transition: 0.2s linear;
+            }
+            footer .Footer h1 a:hover{
+                text-decoration:none;
+                color: #dcdcdc;
+            }
+            footer .Footer ul{
+                list-style-type: none;
+                margin: 0px 0px 1em -1.5em;
+            }
+            footer .Footer li{
+                font-size:110%;
+                margin-bottom:0.5em;
+            }
+            footer .Footer li a{
+                color: #333333;
+
+                text-decoration: none;
+                border-bottom: 1px solid #999999;
+                padding-bottom: 2px;
+
+                transition-property: all;
+                transition: 0.2s linear;
+            }
+            footer .Footer li a:hover{
+                text-decoration:none;
+                color: #dcdcdc;
+                border-bottom: 1px solid #dcdcdc;
+            }
+/*  --  End of footer tag --  */
+
+/*  --  Start of Responsive setting --  */
+            /*for PC*/
+            @media ( min-width : 1000px){
+                .flexbox {
+                    display: -webkit-flex;
+                    display: flex;
+                    -webkit-flex-wrap: wrap;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                }
+                .item {
+                    flex-basis: 270px;
+                }
+                .item_cnt1 {
+                    min-height:170px;
+                }
+            }
+            /* for mobile */
+            @media (max-width:1000px){
+                html{
+                    font-size:15.5px;
+                }
+                .item_cntnr{
+                    display: -webkit-flex;
+                    display: flex;
+                    -webkit-flex-wrap: wrap;
+                    flex-wrap: wrap;
+                    justify-content: space-around;
+                }
+                .item_cnt2{
+                    width: 47%;
+                    min-width: 240px;
+                }
+                .item{
+                    margin: 0px 0px 20px 0px;
+                }
+                
+                /*-- Start of Hide Ad option --*/
+                .tmblr-iframe-pushdown {
+                    padding-top: 0!important;
+                }
+                .tmblr-iframe--app-cta-button {
+                    display: none!important;
+                }
+                .tmblr-iframe--unified-controls {
+                    height: 0!important;
+                    display: none!important;
+                }
+                body#dashboard_iframe {
+                    display: none;
+                }
+                /*-- End of Hide Ad option --*/
+            }
+/*  --  End of Responsive setting --  */
+
+/*  --  Start of Global Section setting   --  */
+            section{
+                font-size:95%;
+                line-height: 180%;
+
+                width: 90%;
+                max-width:800px;
+
+                margin: 0 auto;
+
+                padding: 5px 2% 5px 2%;
+            }
+
+            section hr{
+                border:1px solid #f1f1f1;
+                margin: 20px 0px 20px 0px;
+            }
+            
+            section li{
+                list-style-type:circle;
+            }
+            
+            section ul{
+                list-style-type:circle;
+                padding-left:5%;
+            }
+
+            section a{
+                color: #333333;
+                text-decoration: none;
+                transition-property: all;
+                transition: 0.2s linear;
+
+                text-decoration: none;
+                border-bottom: 1px solid #999999;
+                padding-bottom: 1px;
+            }
+            section a:hover{
+                color: #dcdcdc;
+                border-bottom: 1px solid #dcdcdc;
+            }
+
+            section h1{
+                background-image:none;
+                background-color:transparent;
+                padding:0px;
+                text-shadow:none;
+                text-align:left;
+                border:none;
+                
+                color: #555555;
+                text-decoration:none;
+                font-weight:400;
+                font-size:135%;
+                line-height:145%;
+                margin: 0px 0px 20px 0px;
+                
+                max-height: 100%;
+                
+                transition-property: all;
+                transition: 0.2s linear;
+            }
+
+            section h2{
+                min-height:0px;
+                text-align:left;
+                border:none;
+                padding: 0px 0px 5px 0px;
+                margin: 25px 0px -6px 0px;
+                
+                font-weight:300;
+                font-size:130%;
+                line-height: 120%;
+                color:#555555;
+                
+                max-height: 100%;
+            }
+            section h3{
+                font-weight: 300;
+                font-size: 110%;
+                line-height: 120%;
+                color: #555555;
+                margin-top: 20px;
+                margin-bottom: -8px;
+            }
+
+            section img{
+                max-width: 100%;
+            }
+            section img a{
+                border:none;
+            }
+/*  --  End of Global Section setting   --  */
+
+/*  --  Start of Main Text Entry setting    --  */
+            section.entry{
+                margin-top:10px;
+            }
+
+            section.entry blockquote{
+                border: 2px solid #dcdcdc;
+                border-radius: 2px;
+
+                padding: 3px 20px;
+                margin: 20px 10px;
+            }
+
+            section.entry pre {
+                background-color:#f1f1f1;
+                border-radius: 2px;
+                border: solid 1px #d5d5d5;
+                line-height: 130%;
+
+                width: 95%;
+                max-width: 800px;
+                overflow: auto;
+
+                padding: 0.3rem 0.8rem;
+                margin: 20px 0px 10px 0px;
+                
+            }
+            section.entry code{
+                font-family: Consolas, 'Courier New', Courier, Monaco, monospace;
+                font-size: 100%;
+                background-color: #f1f1f1;
+            }
+
+            section.postnote{
+                border-top:1.5px solid #f1f1f1;
+            }
+            
+            section.entry table{
+                border-collapse: collapse;
+                border: 1px solid #ffffff;
+                margin: 30px 0px;
+            }
+            
+            section.entry th{
+                border-collapse: collapse;
+                border: 1px dotted #737371;
+                padding: 5px 10px;
+                font-weight: inherit;
+            }
+            
+            section.entry td{
+                border-collapse: collapse;
+                border: 1px dotted #737371;
+                padding: 5px 10px;
+            }
+            
+/*  --  End of Main Text Entry setting    --  */
+
+/*  --  Start of Entry Footer setting    --  */
+            section.info{
+                text-align:right;
+                font-size:80%;
+            }
+            
+            ol.notes{
+                padding-left: 5%;
+                text-align: left;
+                line-height: 200%;
+            }
+            
+            p.tag{
+                margin-bottom: 5px;
+            }
+            
+            p.tag a{
+                line-height: 250%;
+
+                margin:2px 2px;
+                padding: 2px 5px;
+
+                color: #ffffff;
+                background-color: #a5a5a5;
+                border-radius: 3px;
+                border: solid 1px #aaaaaa;
+
+                transition-property: all;
+                transition: 0.3s linear;
+                
+                text-decoration: none;
+                white-space: nowrap;
+            }
+            p.tag a:hover{
+                color: #333333;
+                background-color: #f1f1f1;
+                text-decoration: none;
+                box-shadow: 0 0 8px {color:ThemeColor};
+            }
+/*  --  End of Entry Footer setting    --  */
+
+/*  --  Start of Photo setting   --  */
+            section.photo a{
+                border:none;
+            }
+/*  --  End of Photo setting   --  */
+
+/*  --  Start of Photoset setting   --  */
+            section.photoset{
+                width:95%;
+                max-width:700px;
+                margin:0 auto;
+                overflow:auto;
+                -webkit-overflow-scrolling:touch;
+            }
+/*  --  End of Photoset setting   --  */
+
+/*  --  Start of LinkQuote setting  --  */
+            section.linkQuote{
+                border: 2px solid #dcdcdc;
+                border-radius: 2px;
+
+                /*padding: 25px 25px;*/
+                padding: 15px 20px;
+                /*padding: 3%;*/
+                width:80%;
+            }
+/*  --  End of LinkQuote setting  --  */
+
+/*  --  Start of Like ReBlog Control    --  */
+            .contral{
+                margin-bottom: 3px;
+                margin-right:2%;
+                float:right;
+            }
+            
+            .contral a{
+                border-bottom: none;
+            }
+            .contral a:hover{
+                border-bottom: none;
+            }
+            
+            .contral ul {
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+            }
+    
+            .contral li {
+                float: left;
+                width: 20px;
+                margin-right: 5px;
+                padding: 2px;
+                list-style-type:none;
+            }
+/*  --  End of Like ReBlog Control    --  */
+            
+            {CustomCSS}
+            
+        </style>
+    </head>
+
+    <body>
+        <script language="JavaScript">
+            // SetTitleTag
+            function setTitle(name, suffix)
+            {
+                var strTitle = "";
+                // Get caption element
+                var elEntry = document.getElementById(name);
+                var children = elEntry.childNodes;
+                if(children[1].tagName == "H1" || children[1].tagName == "h1")
+			    {
+			        strTitle = children[1].innerText;
+			        document.title = strTitle + suffix;
+                }
+            }
+            
+            // HideIndexImage
+            function hideIndexImage(name, url, count)
+            {
+                // select keyword from URL
+                var splitStr = "pn";
+                var params = url.split(splitStr);
+                photoNo = Number(params[params.length-1]);
+                if(!photoNo > 0 || photoNo > count)
+                {
+                    photoNo = 1;
+                }
+                
+                // Get Element
+                var cnts = document.getElementsByName(name);
+                
+                for(var i = 0; i < cnts.length; i++)
+                {
+                    if(i == photoNo - 1 )
+                    {
+                        continue;
+                    }
+                    cnts[i].setAttribute('style', 'display:none');
+                }
+            }
+        </script>
+        
+        <header>
+            <div class = "header">
+                <h1><a href={BlogURL}>{Title}</a></h1>
+            </div>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="/">HOME</a></li>
+                {block:HasPages}
+                    {block:Pages}
+                        <li><a href="{URL}">{Label}</a></li>
+                    {block:Pages}
+                {block:HasPages}
+                <li><a href="/archive">ARCHIVE</a></li>
+            </ul>
+        </nav>
+        
+<!-- Start of Index page setting -->
+        {block:IndexPage} 
+        <div class="flexbox">
+            {block:Posts}
+            <div class="item">
+                <div class="item_cntnr">
+                    <!-- Start of Text Entry -->
+                    {block:Text}
+                        <div class="item_cnt1">
+                            <h1>{Title}</h1>
+                            {Body}
+                            <div class="info">
+                                {Year}.{MonthNumberWithZero}.{DayOfMonthWithZero} - 
+                                {block:NoteCount}
+                                    {NoteCountWithLabel}
+                                {/block:NoteCount}
+                            </div>
+                        </div>
+                    {/block:Text}
+                    <!-- End of Text Entry -->
+                    
+                    <!-- Start of Photo Entry -->
+                    {block:Photo}
+                        <div class="item_cnt1">
+                            <img src="{PhotoURL-500}" border="0" alt="{PhotoAlt}"/>
+                        </div>
+                    {/block:Photo}
+                    <!-- End of Photo Entry -->
+                    
+                    <!-- Start of Photoset Entry -->
+                    {block:Photoset}
+                        {block:Photos}
+                        <div class="item_cnt1" name="{PostID}">
+                            <img src="{PhotoURL-500}" border="0" alt="{PhotoAlt}"/>
+                        </div>
+                        {/block:Photos}
+                        <script language="JavaScript">
+                            hideIndexImage("{PostID}", "{Permalink}", "{PhotoCount}");
+                        </script>
+                    {/block:Photoset} 
+                    <!-- End of Photoset Entry -->
+                    
+                    <!-- Start of Link Entry -->
+                    {block:link}
+                        <div class="item_cnt1">
+                            <div class="linkQuote">
+                                ToLink
+                                <h1>{Name}</h1>
+                            </div>
+                            {block:Description}
+                                {Description}
+                            {/block:Description}
+                            <div class="info">
+                                {Year}.{MonthNumberWithZero}.{DayOfMonthWithZero} - 
+                                {block:NoteCount}
+                                    {NoteCountWithLabel}
+                                {/block:NoteCount}
+                            </div>
+                        </div>
+                    {/block:link}
+                    <!-- End of Link Entry -->
+                    
+                    <!-- Start of Quote Entry -->
+                    {block:Quote}
+                        <div class="item_cnt1">
+                            <div class="linkQuote">
+                                Quote
+                                <h1>“{Quote}”</h1>
+                            </div>
+                            {block:Source}
+                                引用元：{Source}
+                            {/block:Source}
+                            <div class="info">
+                                {Year}.{MonthNumberWithZero}.{DayOfMonthWithZero} - 
+                                {block:NoteCount}
+                                    {NoteCountWithLabel}
+                                {/block:NoteCount}
+                            </div>
+                        </div>
+                    {/block:Quote}
+                    <!-- End of Quote Entry -->
+                    
+                    <!-- Start of Chat Entry -->
+                    {block:Chat}
+                        <div class="item_cnt1">
+                            {block:title}
+                                <h1>{Title}</h1>
+                            {/block:title}
+                            {block:Lines}
+                                {block:Label}
+                                    {Label}
+                                {/block:Label}
+                                {Line}
+                            {/block:Lines}
+                            <div class="info">
+                                {Year}.{MonthNumberWithZero}.{DayOfMonthWithZero} - 
+                                {block:NoteCount}
+                                    {NoteCountWithLabel}
+                                {/block:NoteCount}
+                            </div>
+                        </div>
+                    {/block:Chat}
+                    <!-- End of Chat Entry -->
+                    
+                    <!-- Start of Answer Entry -->
+                    {block:Answer}
+                        <div class="item_cnt1">
+                            <h1> {Question}</h1>
+                            <p>{Asker}</p>
+                            <p>{Answer}</p>
+                            <div class="info">
+                                {Year}.{MonthNumberWithZero}.{DayOfMonthWithZero} - 
+                                {block:NoteCount}
+                                    {NoteCountWithLabel}
+                                {/block:NoteCount}
+                            </div>
+                        </div>
+                    {/block:Answer}
+                    <!-- End of Answer Entry -->
+                    
+                    <!-- Start of Video Entry -->
+                    {block:Video}
+                        <div class="item_cnt1">
+                            {Video-250}
+                        </div>
+                    {/block:Video}
+                    <!-- End of Video Entry -->
+                    
+                    <!-- Start of Audio Entry -->
+                    {block:Audio}
+                        <div class="item_cnt1">
+                            {AudioPlayerBlack}
+                        </div>
+                    {/block:Audio}
+                    <!-- End of Audio Entry -->
+                    
+                    
+                    <div class="item_cnt2">
+                        <a class="boxlink" href="{Permalink}"></a>
+                        <!-- Start of Photo Caption -->
+                        {block:Photo}
+                            {Caption}
+                            <div class="info">
+                                {Year}.{MonthNumberWithZero}.{DayOfMonthWithZero} - 
+                                {block:NoteCount}
+                                    {NoteCountWithLabel}
+                                {/block:NoteCount}
+                            </div>
+                        {/block:Photo}
+                        <!-- End of Photo Caption -->
+                        
+                        <!-- Start of Photoset Caption -->
+                        {block:Photoset}
+                            {Caption}
+                            <div class="info">
+                                {Year}.{MonthNumberWithZero}.{DayOfMonthWithZero} - 
+                                {block:NoteCount}
+                                    {NoteCountWithLabel}
+                                {/block:NoteCount}
+                            </div>
+                        {/block:Photoset}
+                        <!-- End of Photoset Caption -->
+                        
+                        <!-- Start of Video Caption -->
+                        {block:Video}
+                            {Caption}
+                            <div class="info">
+                                {Year}.{MonthNumberWithZero}.{DayOfMonthWithZero} - 
+                                {block:NoteCount}
+                                    {NoteCountWithLabel}
+                                {/block:NoteCount}
+                            </div>
+                        {/block:Video}
+                        <!-- End of Video Caption -->
+                        
+                        <!-- Start of Audio Caption -->
+                        {block:Audio}
+                            {Caption}
+                            <div class="info">
+                                {Year}.{MonthNumberWithZero}.{DayOfMonthWithZero} - 
+                                {block:NoteCount}
+                                    {NoteCountWithLabel}
+                                {/block:NoteCount}
+                            </div>
+                        {/block:Audio}
+                        <!-- End of Audio Caption -->
+                    </div>
+                </div>
+            </div>
+            {/block:Posts}
+        </div>
+        {/block:IndexPage}
+<!-- End of Index page setting -->
+
+<!-- Start of Permalink Page Setting -->
+        {block:PermalinkPage} 
+            {block:Posts}
+            <!-- Start of Text Entry -->
+                {block:Text}
+                    <section class="entry">
+                        {block:title}
+                            <h1>{Title}</h1>
+                        {/block:title}
+                        {Body}
+                    </section>
+                {/block:Text}
+            <!-- End of Text Entry -->
+            
+            <!-- Start of Photo Entry -->
+                {block:Photo}
+                    <section class="photo">
+                        {LinkOpenTag}
+                            <img src="{PhotoURL-HighRes}" border="0" alt="{PhotoAlt}"/>
+                        {LinkCloseTag}
+                    </section>
+                    <section class="entry" id="{PostID}">
+                        {Caption}
+                    </section>
+                    <script language="JavaScript">
+                        var suffix = " - {Title}";
+                        setTitle("{PostID}", suffix);
+                    </script>
+                {/block:Photo}
+            <!-- End of Photo Entry -->
+            
+            <!-- Start of PhotoSet Entry -->
+                {block:Photoset}
+                    <section class="photoset">
+                        {Photoset}
+                    </section>
+                    <section class="entry" id="{PostID}">
+                        {Caption}
+                    </section>
+                    <script language="JavaScript">
+                        var suffix = " - {Title}";
+                        setTitle("{PostID}", suffix);
+                    </script>
+                {/block:Photoset}
+            <!-- End of PhotoSet Entry -->
+            
+            <!-- Start of Link Entry -->
+                {block:Link}
+                    <section class="linkQuote">
+                        ToLink
+                        <h1><a href="{URL}" target="_blank">{Name}</a></h1>
+                    </section>
+                    <section class="entry" id="{PostID}">
+                        {block:Description}
+                            {Description}
+                        {/block:Description}
+                    </section>
+                    <script language="JavaScript">
+                        var suffix = " - {Title}";
+                        setTitle("{PostID}", suffix);
+                    </script>
+                {/block:Link}
+            <!-- End of Link Entry -->
+            
+            <!-- Start of Quote Entry -->
+                {block:Quote}
+                    <section class="linkQuote">
+                        ToLink
+                        <h1>“{Quote}”</h1>
+                    </section>
+                    <section class="entry">
+                        {block:Source}
+                            引用元：{Source}
+                        {/block:Source}
+                    </section>
+                {/block:Quote}
+            <!-- End of Quote Entry -->
+            
+            <!-- Start of Chat Entry -->
+                {block:Chat}
+                    <section class="entry">
+                        {block:title}
+                            <h1>{Title}</h1>
+                        {/block:title}
+                        {block:Lines}
+                            {block:Label}
+                                {Label}
+                            {/block:Label}
+                            {Line}
+                        {/block:Lines}
+                    </section>
+                {/block:Chat}
+            <!-- End of Chat Entry -->
+            
+            <!-- Start of Video -->
+                {block:Video}
+                    <section class="photoset">
+                        {Video-700}
+                    </section>
+                    <section class="entry">
+                        {block:Caption}
+                            {Caption}
+                        {/block:Caption}
+                    </section>
+                {/block:Video}
+            <!-- End of Video -->
+            
+            <!-- Start of Audio -->
+                {block:Audio}
+                    <section class="photoset">
+                        {AudioPlayerBlack}
+                    </section>
+                    <section class="entry">
+                        {block:Caption}
+                            {Caption}
+                        {/block:Caption}
+                    </section>
+                {/block:Audio}
+            <!-- End of Audio -->
+            
+            <!-- Start of Answer Entry -->
+                {block:Chat}
+                    <section class="entry">
+                        {block:Answer}
+                            <h1> {Question}</h1>
+                            {Asker}
+                            {Answer}
+                        {/block:Answer}
+                    </section>
+                {/block:Chat}
+            <!-- End of Answer Entry -->
+            <section class="info">
+                {block:RebloggedFrom}
+                    Reblogged from <a href="{ReblogParentURL}"><img src="{ReblogParentPortraitURL-16}" class="favicon"/> {ReblogParentName}</a> 
+                    Originally posted by <a href="{ReblogRootURL}"><img src="{ReblogRootPortraitURL-16}" class="favicon"/> {ReblogRootName}</a><br>
+                {/block:RebloggedFrom}
+                
+                {block:PostNotes}
+                    {PostNotes}
+                {/block:PostNotes}
+                
+                <p>
+                    <a href="{Permalink}">{Year}.{MonthNumberWithZero}.{DayOfMonthWithZero}</a>- 
+                    {block:NoteCount}
+                    <a href="{Permalink}">{NoteCountWithLabel}</a>
+                    {/block:NoteCount}
+                </p>
+                <p class="tag">
+                    {block:HasTags}
+                        {block:Tags}
+                            <a href="{TagURL}">{Tag}</a>
+                        {/block:Tags}
+                    {/block:HasTags}
+                </p>
+                    <div class="contral">
+                        <ul>
+                        <li>{ReblogButton color="grey"}</li>
+                        <li>{LikeButton size="15" color="grey"}</li>
+                        </ul>
+                    </div>
+                
+            </section>
+            
+            {/block:Posts}
+        {/block:PermalinkPage} 
+<!-- End of Permalink Page Setting -->
+
+        <div class="naviback">
+            {block:Pagination}
+                {block:PreviousPage}
+                    <a href="{PreviousPage}">back</a>
+                {/block:PreviousPage}
+                {block:NextPage}
+                    <a href="{NextPage}">next</a>
+                {/block:NextPage}
+            {/block:Pagination}
+            
+            {block:PermalinkPagination}
+                {block:NextPost}
+                    <a href="{NextPost}">back</a>
+                {/block:NextPost}
+                {block:PreviousPost}
+                    <a href="{PreviousPost}">next</a>
+                {/block:PreviousPost}
+            {/block:PermalinkPagination}
+        </div>
+
+        <footer>
+            <div class="Footer">
+                <div class="FooterContents">
+                    <div class="FooterContents2Col">
+                        <h1>CATEGORY</h1>
+                        <ul>
+                            {block:IfCtg1}<li><a href="{text:Ctg1Url}">{text:Ctg1}</a></li>{/block:IfCtg1}
+                            {block:IfCtg2}<li><a href="{text:Ctg2Url}">{text:Ctg2}</a></li>{/block:IfCtg2}
+                            {block:IfCtg3}<li><a href="{text:Ctg3Url}">{text:Ctg3}</a></li>{/block:IfCtg3}
+                            {block:IfCtg4}<li><a href="{text:Ctg4Url}">{text:Ctg4}</a></li>{/block:IfCtg4}
+                            {block:IfCtg5}<li><a href="{text:Ctg5Url}">{text:Ctg5}</a></li>{/block:IfCtg5}
+                            {block:IfCtg6}<li><a href="{text:Ctg6Url}">{text:Ctg6}</a></li>{/block:IfCtg6}
+                        </ul>
+                    </div>
+                    <div class="FooterContents2Col">
+                        <h1>ABOUT</h1>
+                        <p style="margin:0px 0px 0px 1em;">{Description}</p>
+                    </div>
+                </div>
+                <p>
+                    Powered by Tumblr, &copy; {CopyrightYears} {text:Writer}.
+                    
+                </p>
+            </div>
+        </footer>
+    </body>
+</html>
